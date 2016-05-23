@@ -52,39 +52,39 @@ get '/listen' do
 	redirect '/school'
 end
 
+get '/behavior' do
+	@behav_topics = {'Were you good today?': '/good',
+		 								'Were you nice to every one you met today?': '/nice',
+										'Did you listen to our parents?': '/parents',
+										'BACK': '/menu'}
+	erb :behavior
+end
 
-	get '/behavior' do
-		@behav_topics = {'Were you good today?': '/good',
-			 								'Were you nice to every one you met today?': '/nice',
-											'Did you listen to our parents?': '/parents',
-											'BACK': '/menu'}
-		erb :behavior
+get '/good' do
+	`say were you good today?`
+	redirect '/behavior'
+end
+
+get '/nice' do
+	`say where you nice to everyone you met today?`
+	redirect '/behavior'
+end
+
+get '/parents' do
+	`say did you listen to your parents?`
+	redirect '/behavior'
+end
+
+get '/menu' do
+	@menu_options = {'Birthday': '/birthday',
+		'School': '/school',
+		'Behavior': '/behavior'}
+		erb :menu
 	end
-
-	get '/good' do
-		`say were you good today?`
-		redirect '/behavior'
-	end
-
-	get '/nice' do
-		`say where you nice to everyone you met today?`
-		redirect '/behavior'
-	end
-
-	get '/parents' do
-		`say did you listen to your parents?`
-		redirect '/behavior'
-	end
-
-	get '/menu' do
-		@menu_options = {'Birthday': '/birthday',
-			'School': '/school',
-			'Behavior': '/behavior'}
-			erb :menu
-		end
 
 post '/' do
 	@name = params[:name]
 	`say hi #{@name}, my name is bob. what would you like to talk about`
 	redirect '/menu'
 end
+
