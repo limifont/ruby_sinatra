@@ -16,6 +16,7 @@ get '/menu' do
 	@topics = {'Birthday': '/birthday',
 				'School': '/school',
 				'Behavior': '/behavior',
+				'Basic Commands': '/basic'
 				'RETURN TO MAIN MENU': '/'}
 	erb :topics
 end
@@ -25,6 +26,7 @@ get '/birthday' do
 	@topics = {'What day is your birthday?': '/day',
 				'What do you want for your birthday?': '/want',
 				'How old are you?': '/old',
+				'Basic Commands': '/basic'
 				'BACK': '/menu'}
 	erb :topics
 end
@@ -48,6 +50,7 @@ get '/school' do
 	@topics = {'Did you have fun at school today?': '/fun',
 				'What did you learn about?': '/learn',
 				'Did you listen to your teacher?': '/listen',
+				'Basic Commands': '/basic',
 				'BACK': '/menu'}
 	erb :topics
 end
@@ -71,6 +74,7 @@ get '/behavior' do
 	@topics = {'Were you good today?': '/good',
 				'Were you nice to every one you met today?': '/nice',
 				'Did you listen to our parents?': '/parents',
+				'Basic Commands': '/basic',
 				'BACK': '/menu'}
 	erb :topics
 end
@@ -88,6 +92,30 @@ end
 get '/parents' do
 	`say did you listen to your parents?`
 	redirect '/behavior'
+end
+
+
+get '/basic' do
+	@basic_topics = {'That is awesome!': '/awesome',
+		 			'Way to go buddy!': '/buddy',
+					'You are a crazy silly pants': '/silly',
+					'BACK': '/menu'}
+	erb :basic
+end
+
+get '/awesome' do
+	`say that is awesome!`
+	redirect '/basic'
+end
+
+get '/buddy' do
+	`say way to go buddy!`
+	redirect '/basic'
+end
+
+get '/silly' do
+	`say You are a crazy silly pants!`
+	redirect '/basic'
 end
 
 
