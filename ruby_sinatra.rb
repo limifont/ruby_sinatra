@@ -8,7 +8,7 @@ require 'babbler'
 get '/' do
 	buddy_name = cookies[:buddy]
 	if buddy_name == 'alex'
-		buddy_name == 'Bob'
+		buddy_name = 'Bob'
 	end
 	`say -v #{cookies[:buddy]} Hi! My name is #{buddy_name}. What is your name?`
 	erb :home
