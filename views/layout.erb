@@ -14,9 +14,9 @@
 			<img id="settings" class="settings" src="/images/gear.png">
 			<div class="menu" style="display:none">
 				<div class="arrow-up"></div>
-				<a class='button button-primary u-full-width' href='/'>BOB</a>
-				<a class='button button-primary u-full-width' href='/'>Bruce</a>
-				<a class='button button-primary u-full-width' href='/'>Victoria</a>
+				<a class='buddy-btn button button-primary u-full-width' href='/pick-a-buddy/alex'>BOB</a>
+				<a class='buddy-btn button button-primary u-full-width' href='/pick-a-buddy/bruce'>Bruce</a>
+				<a class='buddy-btn button button-primary u-full-width' href='/pick-a-buddy/victoria'>Victoria</a>
 			</div>
 		</header>
 		<%= yield %>
@@ -25,6 +25,10 @@
 		$(function(){
 			$('#settings').click(function(){
 				$('.menu').toggle();
+			});
+
+			$('.buddy-btn').click(function(){
+				$('.menu').hide();
 			});
 		});
 	</script>
