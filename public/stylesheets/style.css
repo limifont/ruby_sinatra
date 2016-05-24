@@ -9,6 +9,7 @@ body {
 	margin-bottom: 185px;
 	background-color: rgb(244, 193, 27);
 	color: white;
+	box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.41);
 }
 
 .home-header h4 {
@@ -53,6 +54,7 @@ body {
     background-color: rgb(218,243,255);
     padding: 10px;
     border-radius: 4px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.41);
 }
 
 .arrow-up {
