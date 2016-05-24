@@ -6,12 +6,21 @@ get '/' do
 	erb :home
 end
 
+get '/menu' do
+	@topics = {'Birthday': '/birthday',
+				'School': '/school',
+				'Behavior': '/behavior',
+				'RETURN TO MAIN MENU': '/'}
+	erb :topics
+end
+
+
 get '/birthday' do
-	@birthday_topics = {'What day is your birthday?': '/day',
-		 									'What do you want for your birthday?': '/want',
-											'How old are you': '/old',
-											'BACK': '/menu'}
-	erb :birthday
+	@topics = {'What day is your birthday?': '/day',
+				'What do you want for your birthday?': '/want',
+				'How old are you?': '/old',
+				'BACK': '/menu'}
+	erb :topics
 end
 
 get '/day' do
@@ -30,11 +39,11 @@ get '/old' do
 end
 
 get '/school' do
-	@school_topics = {'Did you have fun at school today?': '/fun',
-		 								'What did you learn about?': '/learn',
-										'Did you listen to your teacher': '/listen',
-										'BACK': '/menu'}
-	erb :school
+	@topics = {'Did you have fun at school today?': '/fun',
+				'What did you learn about?': '/learn',
+				'Did you listen to your teacher?': '/listen',
+				'BACK': '/menu'}
+	erb :topics
 end
 
 get '/fun' do
@@ -53,11 +62,11 @@ get '/listen' do
 end
 
 get '/behavior' do
-	@behav_topics = {'Were you good today?': '/good',
-		 								'Were you nice to every one you met today?': '/nice',
-										'Did you listen to our parents?': '/parents',
-										'BACK': '/menu'}
-	erb :behavior
+	@topics = {'Were you good today?': '/good',
+				'Were you nice to every one you met today?': '/nice',
+				'Did you listen to our parents?': '/parents',
+				'BACK': '/menu'}
+	erb :topics
 end
 
 get '/good' do
@@ -75,12 +84,6 @@ get '/parents' do
 	redirect '/behavior'
 end
 
-get '/menu' do
-	@menu_options = {'Birthday': '/birthday',
-		'School': '/school',
-		'Behavior': '/behavior'}
-		erb :menu
-	end
 
 post '/' do
 	@name = params[:name]

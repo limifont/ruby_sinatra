@@ -1,6 +1,7 @@
-<h1>Menu</h1>
-<ol>
-	<% @menu_options.each do |name, link|%>
-		<li><a href='<%= link %>'><%= name %></a></li>
-	<% end %>
-</ol>
+<div class="box">
+	<ol>
+		<% @menu_options.each do |name, link|%>
+			<li><a href='<%= link %>'><%= name %></a></li>
+		<% end %>
+	</ol>
+</div>
