@@ -2,9 +2,15 @@ require 'sinatra'
 require 'pry'
 require 'babbler'
 
+@buddy = 'victoria'
+
+
 get '/' do
 	erb :home
 end
+
+
+
 
 get '/menu' do
 	@topics = {'Birthday': '/birthday',
@@ -24,7 +30,7 @@ get '/birthday' do
 end
 
 get '/day' do
-	`say What day is your birthday`
+	`say -v ` + @buddy + `What day is your birthday`
 	redirect '/birthday'
 end
 

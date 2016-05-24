@@ -4,14 +4,28 @@
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 		<link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="/stylesheets/skeleton.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
 
 	</head>
 	<body>
 		<header class="home-header">
 			<h4>BOB.</h4>
-			<img class="settings" src="/images/gear.png">
+			<img id="settings" class="settings" src="/images/gear.png">
+			<div class="menu" style="display:none">
+				<div class="arrow-up"></div>
+				<a class='button button-primary u-full-width' href='/'>BOB</a>
+				<a class='button button-primary u-full-width' href='/'>Bruce</a>
+				<a class='button button-primary u-full-width' href='/'>Victoria</a>
+			</div>
 		</header>
 		<%= yield %>
 	</body>
+	<script type="text/javascript">
+		$(function(){
+			$('#settings').click(function(){
+				$('.menu').toggle();
+			});
+		});
+	</script>
 </html>
